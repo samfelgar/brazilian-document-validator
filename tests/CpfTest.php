@@ -74,4 +74,31 @@ class CpfTest extends TestCase
             ['13607684324', '136.076.843-24'],
         ];
     }
+
+    #[Test]
+    #[DataProvider('itCanReturnTheNormalizedValueProvider')]
+    public function itCanReturnTheNormalizedValue(string $value, string $expected): void
+    {
+        $cpf = new Cpf($value);
+        $this->assertEquals($expected, $cpf->getValue());
+    }
+
+    public static function itCanReturnTheNormalizedValueProvider(): array
+    {
+        return [
+            ['78367532554', '78367532554'],
+            ['50686455754', '50686455754'],
+            ['65982354805', '65982354805'],
+            ['39055724009', '39055724009'],
+            ['70494259582', '70494259582'],
+            ['13607684324', '13607684324'],
+
+            ['783.675.325-54', '78367532554'],
+            ['506.864.557-54', '50686455754'],
+            ['659.823.548-05', '65982354805'],
+            ['390.557.240-09', '39055724009'],
+            ['704.942.595-82', '70494259582'],
+            ['136.076.843-24', '13607684324'],
+        ];
+    }
 }

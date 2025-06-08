@@ -42,6 +42,11 @@ class Cpf implements DocumentInterface
         return $module < 2 ? 0 : 11 - $module;
     }
 
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+
     public function format(): string
     {
         return \preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', '$1.$2.$3-$4', $this->value);
