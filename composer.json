@@ -1,6 +1,13 @@
 {
   "name": "samfelgar/brazilian-document-validator",
   "type": "library",
+  "keywords": [
+    "cpf",
+    "cnpj",
+    "validator",
+    "brazil",
+    "documents"
+  ],
   "license": "MIT",
   "autoload": {
     "psr-4": {
